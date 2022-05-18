@@ -17,7 +17,7 @@ char *menu = "\tTaller Colaborativo en C \n\n"
              "Dijite una opcion\n";
 
 void llenarCaracteres(char input[100], char character, int repetition, int direction) {
-//    fflush(stdin);
+
     printf("Cadena: %s \nCaracter %c \n", input, character);
     printf("repeticiones %i direccion %i \n", repetition, direction);
 
@@ -31,16 +31,15 @@ void llenarCaracteres(char input[100], char character, int repetition, int direc
         case 0:
             printf("DERECHA\n");
             strcat(input, chars);
-            printf("%s \n", input,chars);
+            printf("%s \n", input, chars);
             break;
         case 1:
             printf("IZQUIERDA\n");
-            strcat(&chars, &input);
+            strcat(chars, input);
             printf("%s \n", chars);
             break;
         default:
             printf("DIGITO INVALIDO, INTENTE DE NUEVO...\n");
-
 
 
     }
@@ -48,14 +47,12 @@ void llenarCaracteres(char input[100], char character, int repetition, int direc
 }
 
 
-
 int main() {
 
     do {
-        printf(menu);
-//        fflush(stdin);
-        scanf("%i", &menuOption);
 
+        printf(menu);
+        scanf("%i", &menuOption);
 
         switch (menuOption) {
 
@@ -76,19 +73,25 @@ int main() {
                 break;
             case 5:
 
+
                 printf("Llenar caracteres\n");
+
                 char input[100], character;
                 int repetition, direction;
 
                 printf("Digite una cadena: \n");
                 gets(input);
                 gets(input);
+
                 printf("Digite un caracter: \n");
                 scanf("%s", &character);
+
                 printf("Digite el numero de veces que se reptie el caracter: \n");
                 scanf("%i", &repetition);
+
                 printf("Seleccione la direccion: \n [0] Derecha \n [1] Izquierda \n");
                 scanf("%i", &direction);
+
                 llenarCaracteres(input, character, repetition, direction);
 
                 break;
