@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <string.h>
+
+
 int menuOption;
 char *menu = "\tTaller Colaborativo en C \n\n"
              "1.Convertir cadena a nombre propio\n"
@@ -13,12 +16,45 @@ char *menu = "\tTaller Colaborativo en C \n\n"
              "0. Salir\n\n"
              "Dijite una opcion\n";
 
+void llenarCaracteres(char input[100], char character, int repetition, int direction) {
+//    fflush(stdin);
+    printf("Cadena: %s \nCaracter %c \n", input, character);
+    printf("repeticiones %i direccion %i \n", repetition, direction);
+
+
+    char chars[repetition - 1];
+    for (int i = 0; i < repetition; ++i) {
+        chars[i] = character;
+    }
+
+    switch (direction) {
+        case 0:
+            printf("DERECHA\n");
+            strcat(input, chars);
+            printf("%s \n", input,chars);
+            break;
+        case 1:
+            printf("IZQUIERDA\n");
+            strcat(&chars, &input);
+            printf("%s \n", chars);
+            break;
+        default:
+            printf("DIGITO INVALIDO, INTENTE DE NUEVO...\n");
+
+
+
+    }
+
+}
+
+
+
 int main() {
 
     do {
         printf(menu);
-        fflush(stdin);
-        scanf("%i",&menuOption);
+//        fflush(stdin);
+        scanf("%i", &menuOption);
 
 
         switch (menuOption) {
@@ -39,7 +75,22 @@ int main() {
                 printf("Año nuevo\n");
                 break;
             case 5:
+
                 printf("Llenar caracteres\n");
+                char input[100], character;
+                int repetition, direction;
+
+                printf("Digite una cadena: \n");
+                gets(input);
+                gets(input);
+                printf("Digite un caracter: \n");
+                scanf("%s", &character);
+                printf("Digite el numero de veces que se reptie el caracter: \n");
+                scanf("%i", &repetition);
+                printf("Seleccione la direccion: \n [0] Derecha \n [1] Izquierda \n");
+                scanf("%i", &direction);
+                llenarCaracteres(input, character, repetition, direction);
+
                 break;
             case 6:
                 printf("Borrar caracteres\n");
@@ -59,9 +110,7 @@ int main() {
 
 
         }
-    } while (menuOption != 0 );
-
-
+    } while (menuOption != 0);
 
 
     return 0;
