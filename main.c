@@ -16,10 +16,10 @@ char *menu = "\tTaller Colaborativo en C \n\n"
              "0. Salir\n\n"
              "Dijite una opcion\n";
 
-void llenarCaracteres(char input[100], char character, int repetition, int direction) {
-
+char *llenarCaracteres(char input[100], char character, int repetition, int direction) {
+    char *string;
     printf("Cadena: %s \nCaracter %c \n", input, character);
-    printf("repeticiones %i direccion %i \n", repetition, direction);
+    printf("repeticiones %i \nDireccion %i \n", repetition, direction);
 
 
     char chars[repetition - 1];
@@ -29,21 +29,22 @@ void llenarCaracteres(char input[100], char character, int repetition, int direc
 
     switch (direction) {
         case 0:
-            printf("DERECHA\n");
-            strcat(input, chars);
-            printf("%s \n", input, chars);
+            printf("\n\n DERECHA\n\n");
+            string = strcat(input, chars);
+            printf("%s \n\n", string);
+
             break;
         case 1:
-            printf("IZQUIERDA\n");
-            strcat(chars, input);
-            printf("%s \n", chars);
+            printf("\n\n IZQUIERDA\n\n");
+            string = strcat(chars, input);
+            printf("%s \n\n", string);
             break;
         default:
             printf("DIGITO INVALIDO, INTENTE DE NUEVO...\n");
 
 
     }
-
+    return string;
 }
 
 
