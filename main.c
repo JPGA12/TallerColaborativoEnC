@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 
 int menuOption;
@@ -47,6 +48,21 @@ char *llenarCaracteres(char input[100], char character, int repetition, int dire
     return string;
 }
 
+char *borrarCaracteres(char *input, char character) {
+    char* string;
+    char aux[100];
+    int index = 0;
+    for (int i = 0; i < strlen(input); ++i) {
+        char ci = tolower(input[i]), c = tolower(character);
+        if (ci != c) {
+            aux[index] = input[i];
+            index++;
+        } else{}
+    }
+    printf("%s \n",string);
+    return string;
+}
+
 
 int main() {
 
@@ -74,14 +90,12 @@ int main() {
                 break;
             case 5:
 
-
                 printf("Llenar caracteres\n");
 
                 char input[100], character;
                 int repetition, direction;
 
                 printf("Digite una cadena: \n");
-                gets(input);
                 gets(input);
 
                 printf("Digite un caracter: \n");
@@ -97,7 +111,19 @@ int main() {
 
                 break;
             case 6:
+
                 printf("Borrar caracteres\n");
+
+                char inputDelete[100], characterDelete;
+
+                printf("Digite una cadena: \n");
+                gets(inputDelete);
+
+                printf("Digite caracter a borrar de la cadena \n");
+                scanf("%c", &characterDelete);
+
+                borrarCaracteres(inputDelete, characterDelete);
+
                 break;
             case 7:
                 printf("Interseccion\n");
