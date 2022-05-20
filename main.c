@@ -141,7 +141,7 @@ int main() {
 
             case 0:
                 printf("SALIENDO...\n");
-                printf("cc");
+                printf("cjmdkjm");
                 break;
             case 1:
                 printf("Convertir cadena a nombre propio\n");
