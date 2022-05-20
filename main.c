@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <time.h>
 
 
 int menuOption;
@@ -156,7 +157,7 @@ int main() {
                 printf("Contar vocales\n");
                 break;
             case 4:
-                printf("Año nuevo\n");
+                printf("Anio nuevo\n");
                 newYear();
                 break;
             case 5:
