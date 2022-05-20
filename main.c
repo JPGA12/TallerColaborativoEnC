@@ -143,6 +143,7 @@ int main() {
                 printf("SALIENDO...\n");
                 break;
             case 1:
+                printf("Convertir cadena a nombre propio\n");
                 char sentence[0];
                 printf("Convertir cadena a nombre propio\n");
                 printf("Ingresa una cadena\n");
@@ -207,9 +208,10 @@ int main() {
                 printf("Eliminar repetidos\n");
                 break;
             case 9:
-                printf("Desplazamiento");
+                printf("Desplazamiento\n");
                 break;
             case 10:
+                printf("Verificacion de E-mail \n");
                 char email [30] ;
                 printf("Ingresa el email\n");
                 scanf("%s",email);
