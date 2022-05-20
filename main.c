@@ -141,6 +141,7 @@ int main() {
 
             case 0:
                 printf("SALIENDO...\n");
+                printf("cc");
                 break;
             case 1:
                 char sentence[0];
