@@ -41,7 +41,7 @@ char *llenarCaracteres(char input[100], char character, int repetition, int dire
             printf("%s \n\n", string);
             break;
         default:
-            printf("DIGITO INVALIDO, INTENTE DE NUEVO...\n");
+            printf("DIGITO INVALIDO, INTENTE DE NUEVO...\n\n");
 
 
     }
@@ -63,7 +63,7 @@ char *borrarCaracteres(char input[100], char character) {
         }
     }
     string = aux;
-    printf("Cadena final: %s \n", string);
+    printf("\n\nCadena final: %s \n\n", string);
     return string;
 
 }
@@ -101,7 +101,7 @@ int main() {
                 int repetition, direction;
 
                 printf("Digite una cadena: \n");
-                gets(input);
+
                 gets(input);
 
                 printf("Digite un caracter: \n");
@@ -116,6 +116,7 @@ int main() {
                 llenarCaracteres(input, character, repetition, direction);
 
                 break;
+
             case 6:
 
                 printf("Borrar caracteres\n");
