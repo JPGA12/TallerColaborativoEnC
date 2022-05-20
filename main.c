@@ -5,7 +5,7 @@
 
 int menuOption;
 char *menu = "\tTaller Colaborativo en C \n\n"
-             "1.Convertir cadena a nombre propio\n"
+             "1. Convertir cadena a nombre propio\n"
              "2. Buscar cadena de caracteres\n"
              "3. Contar vocales\n"
              "4. Anio nuevo\n"
@@ -14,8 +14,47 @@ char *menu = "\tTaller Colaborativo en C \n\n"
              "7. Interseccion\n"
              "8. Eliminar repetidos\n"
              "9. Desplazamiento\n"
+             "10. Validacion Email\n"
              "0. Salir\n\n"
              "Dijite una opcion\n";
+
+int validateEmail(char email []){
+    email = strchr( email, '@' );
+
+    if( email == NULL ) {
+        return 1;
+    }else{
+        if(strchr( email, '.' )==NULL){
+            return 1;
+        } else{
+            return 0;
+        }
+    }
+}
+
+char sentenceUp(char sentence []){
+    strlwr(sentence);
+    for (int i = 0; sentence[i] != '\0'; ++i){
+        if( sentence[i-1]==NULL && isspace(sentence[i+1] ) || strlen(sentence)<=1){
+
+        }else if( sentence[i-1]==NULL || isspace(sentence[i-1] ) && !isspace(sentence[i+1] ) && sentence[i+1] != NULL){
+            sentence[i] = toupper(sentence[i]);
+        }
+    }
+    return sentence;
+}
+
+int contarVocales(char palabra []){
+    int count=0;
+
+    for(int i = 0; palabra[i] != '\0'; ++i){
+        if(palabra[i]=='a' || palabra[i]=='e' || palabra[i]=='i' || palabra[i]=='o' || palabra[i]=='u'){
+            count++;
+
+        }
+    }
+    return count;
+}
 
 char *llenarCaracteres(char input[100], char character, int repetition, int direction) {
     char *string;
@@ -80,10 +119,14 @@ int main() {
 
             case 0:
                 printf("SALIENDO...\n");
-                printf("edit");
                 break;
             case 1:
+                char sentence[0];
                 printf("Convertir cadena a nombre propio\n");
+                printf("Ingresa una cadena\n");
+                sentenceUp(gets(sentence));
+                fflush(stdin);
+                printf("La cadena en nombre propio es: %s\n",sentence);
                 break;
             case 2:
                 printf("Buscar cadena de caracteres\n");
@@ -142,6 +185,14 @@ int main() {
                 break;
             case 9:
                 printf("Desplazamiento");
+                break;
+            case 10:
+                char email [30] ;
+                printf("Ingresa el email\n");
+                scanf("%s",email);
+                fflush(stdin);
+                printf((validateEmail(email)==0)?"direccion valida\n":"direccion invalida\n");
+
                 break;
 
             default:
