@@ -45,10 +45,25 @@ char sentenceUp(char sentence []){
     return sentence;
 }
 
+
+int Buscar( char Cadena[], char Caracter){
+    int contCarc=0;
+    for(int i = 0; Cadena[i] != '\0'; ++i){
+        Cadena[i]= tolower(Cadena[i]);
+        Caracter= tolower(Caracter);
+        if(Cadena[i]==Caracter){
+            contCarc++;
+        }
+    }
+    return contCarc;
+}
+
+
 int contarVocales(char palabra []){
     int count=0;
 
     for(int i = 0; palabra[i] != '\0'; ++i){
+        palabra[i]= tolower(palabra[i]);
         if(palabra[i]=='a' || palabra[i]=='e' || palabra[i]=='i' || palabra[i]=='o' || palabra[i]=='u'){
             count++;
 
@@ -56,6 +71,8 @@ int contarVocales(char palabra []){
     }
     return count;
 }
+
+
 
 char *llenarCaracteres(char input[100], char character, int repetition, int direction) {
     char *string;
@@ -141,7 +158,7 @@ int main() {
 
             case 0:
                 printf("SALIENDO...\n");
-                printf("cjmdkjm");
+
                 break;
             case 1:
                 printf("Convertir cadena a nombre propio\n");
@@ -154,9 +171,28 @@ int main() {
                 break;
             case 2:
                 printf("Buscar cadena de caracteres\n");
+
+                char cad[0];
+                char caracter;
+                printf("Ingrese una Cadena \n");
+                fflush(stdin);
+                gets( cad);
+
+                printf("Ingrese el caracter a buscar\n");
+                scanf("%c", &caracter);
+
+                printf("La cadena %s tiene %i caracteres %c", cad, Buscar(cad,caracter),caracter);
+
                 break;
             case 3:
                 printf("Contar vocales\n");
+
+                char palabra[0];
+                printf("Ingrese la cadena\n");
+                fflush(stdin);
+                gets(palabra);
+
+                printf("La cadena %s tiene una cantidad de %i vocales\n",palabra,contarVocales(palabra));
                 break;
             case 4:
                 printf("Anio nuevo\n");
