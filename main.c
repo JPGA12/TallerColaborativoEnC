@@ -107,6 +107,27 @@ char *borrarCaracteres(char input[100], char character) {
 
 }
 
+char* newYear() {
+    char string;
+    time_t t = time(NULL);
+    struct tm tm = *localtime(&t);
+
+    int hour = 23 - tm.tm_hour;
+    int month = tm.tm_mon;
+    int dayActually = tm.tm_mday;
+    int minute = 60 - tm.tm_min;
+    int timeInDays = ((month) * 30) + dayActually;
+    int day = 365 - timeInDays;
+
+
+    printf("Fecha actual: %d-%02d-%02d %02d:%02d:%02d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour,
+           tm.tm_min, tm.tm_sec);
+    printf("El tiempo para que llegue anio nuevo es: \nDias: %i \nHoras: %i \nMinutos: %i \n", day, hour, minute);
+
+
+    return string;
+}
+
 
 int main() {
 
@@ -136,6 +157,7 @@ int main() {
                 break;
             case 4:
                 printf("Año nuevo\n");
+                newYear();
                 break;
             case 5:
 
