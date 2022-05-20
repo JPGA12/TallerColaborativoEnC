@@ -48,19 +48,24 @@ char *llenarCaracteres(char input[100], char character, int repetition, int dire
     return string;
 }
 
-char *borrarCaracteres(char *input, char character) {
-    char* string;
+char *borrarCaracteres(char input[100], char character) {
+
+    char *string;
     char aux[100];
     int index = 0;
-    for (int i = 0; i < strlen(input); ++i) {
+    for (int i = 0; i < strlen(input); i++) {
         char ci = tolower(input[i]), c = tolower(character);
         if (ci != c) {
             aux[index] = input[i];
             index++;
-        } else{}
+        } else {
+
+        }
     }
-    printf("%s \n",string);
+    string = aux;
+    printf("Cadena final: %s \n", string);
     return string;
+
 }
 
 
@@ -70,7 +75,7 @@ int main() {
 
         printf(menu);
         scanf("%i", &menuOption);
-
+        fflush(stdin);
         switch (menuOption) {
 
             case 0:
@@ -97,6 +102,7 @@ int main() {
 
                 printf("Digite una cadena: \n");
                 gets(input);
+                gets(input);
 
                 printf("Digite un caracter: \n");
                 scanf("%s", &character);
@@ -116,7 +122,8 @@ int main() {
 
                 char inputDelete[100], characterDelete;
 
-                printf("Digite una cadena: \n");
+                printf("Digite una cadenass: \n");
+                fflush(stdin);
                 gets(inputDelete);
 
                 printf("Digite caracter a borrar de la cadena \n");
