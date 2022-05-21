@@ -403,7 +403,9 @@ int main() {
                 break;
             case 9:
                 printf("\n HA SELECCIONADO LA OPCION 9: desplazamiento \n\nIngrese u oracion una palabra para desplazar un elemento de este\n");
+
                 char words[50];
+
                 int y,y1,x1;
                 //scanf("%s",words);
                 fgets(words,500,stdin );
